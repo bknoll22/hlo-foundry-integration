@@ -1,0 +1,15 @@
+{
+    "id": "hlo-foundry-integration",
+    "title": "Hero Lab Online Integration",
+    "description": "Integrates characters being used in Hero Lab Online with actors within Foundry VTT",
+    "authors": [
+        {
+            "name": "bknoll22"
+        }
+    ],
+    "version": "1.0.0",
+    "system": ["pf2e"],
+    "scripts": [
+        "scripts/hloIntegration.js"
+    ]    
+}
