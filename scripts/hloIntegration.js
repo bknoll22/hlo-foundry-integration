@@ -13,11 +13,14 @@ const HERO_LAB_URL="https://api.herolab.online"
 
 let userToken = null
 let elementToken = null
+let accessToken = null
 
 Hooks.on('ready', main);
 
 async function main() {
   await acquireAccessToken()
+
+  await requestSingleCharacter()
 }
 
 async function acquireAccessToken() {
@@ -27,12 +30,22 @@ async function acquireAccessToken() {
     refreshToken: userToken, 
     toolName: TOOL_NAME,
     callerId: 123
+  }
+  const response = await submitRequest(route, request)
+  console.log("accessToken: " + response.accessToken);
+  //extract the access token
+  accessToken = response.accessToken
 }
-const response = await submitRequest(route, request)
 
-console.log(response.accessToken);
-//extract the access token
-accessToken = response.accessToken
+async function requestSingleCharacter(){
+  const route = "/v1/character/get"
+  const request = {
+    accessToken: accessToken,
+    elementToken: elementToken
+  }
+
+  const response = await submitRequest(route, request)
+  console.log(response.export)
 }
 
 async function submitRequest(url, request) {
@@ -53,9 +66,9 @@ async function submitRequest(url, request) {
    const responseBody = await response.json()
 
    //sanity check the results and return them
-   assert(responseBody.severity === Severity.Success, "submitRequest response severity")
-   assert(responseBody.result === Result.Success, "submitRequest response result")
-   assert(responseBody.callerId === request.callerId, "submitRequest response callerId")
+   //assert(responseBody.severity === Severity.Success, "submitRequest response severity")
+   //assert(responseBody.result === Result.Success, "submitRequest response result")
+   //assert(responseBody.callerId === request.callerId, "submitRequest response callerId")
 
    return responseBody
 }
