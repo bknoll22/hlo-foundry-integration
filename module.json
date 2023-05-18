@@ -15,5 +15,5 @@
     "scripts": [
         "scripts/hloIntegration.js"
     ],
-    "manifest": "https://raw.githubusercontent.com/bknoll22/hlo-foundry-integration/module.json"
+    "manifest": "https://raw.githubusercontent.com/bknoll22/hlo-foundry-integration/main/module.json"
 }
