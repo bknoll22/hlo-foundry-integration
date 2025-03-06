@@ -2,18 +2,37 @@
     "name": "hlo-foundry-integration",
     "id": "hlo-foundry-integration",
     "title": "Hero Lab Online Integration",
-    "description": "Integrates characters being used in Hero Lab Online with actors within Foundry VTT",
-    "author": "bknoll22",
+    "description": "Integrates characters being used in Hero Lab Online with actors in Foundry VTT",
     "authors": [
         {
             "name": "bknoll22"
         }
     ],
+    "compatibility": {
+    "minimum": 12,
+    "verified": "12",
+    "maximum": "12"
+    },
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "languages/en.json"
+        }
+    ],  
     "url": "https://github.com/bknoll22/hlo-foundry-integration",
     "version": "1.0.0",
-    "system": ["pf2e"],
+    "relationships": {
+        "systems": [
+            {
+                "id": "pf2e"
+            }]
+    },
     "scripts": [
-        "scripts/hloIntegration.js"
+        "scripts/hlo-foundry-integration.js"
+    ],
+    "styles": [
+        "styles/hlo-foundry-integration.css"
     ],
     "manifest": "https://raw.githubusercontent.com/bknoll22/hlo-foundry-integration/main/module.json"
 }
